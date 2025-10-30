@@ -24,7 +24,12 @@ def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-model = load_model("./model.keras")  # 学習済みモデルをロード
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # mnist.py がある場所基準
+model_path = os.path.join(BASE_DIR, "model.keras")
+
+model = load_model(model_path)
+
+# model = load_model("./model.keras")  # 学習済みモデルをロード
 
 
 @app.route("/", methods=["GET", "POST"])
