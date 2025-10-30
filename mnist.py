@@ -25,7 +25,7 @@ def allowed_file(filename):
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # mnist.py がある場所基準
 model_path = os.path.join(BASE_DIR, "model.h5")
-model = load_model(model_path)
+model = load_model(model_path, compile=False)
 
 # model = load_model("./model.keras")  # 学習済みモデルをロード
 
